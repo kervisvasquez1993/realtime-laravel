@@ -29,7 +29,7 @@ class UserSessionChanged implements ShouldBroadcast
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-    public function broadcastOn()
+    public function broadcastOn() //metodo plucico 
     {
         return new Channel('notifications');
     }
