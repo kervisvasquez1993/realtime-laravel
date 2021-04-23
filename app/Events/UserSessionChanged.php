@@ -14,15 +14,17 @@ class UserSessionChanged implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    
+    public $mesage;
+    public $type;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($mesage, $type)
     {
-        
+        $this->mesage = $mesage;
+        $this->type   = $type;
     }
 
     /**
