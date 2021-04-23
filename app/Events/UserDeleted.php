@@ -15,6 +15,7 @@ class UserDeleted implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $user;
     /**
      * Create a new event instance.
      *
@@ -32,7 +33,6 @@ class UserDeleted implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        \Log::debug("User deleted {$this->user->name}");
         return new Channel('users');
     }
 }
