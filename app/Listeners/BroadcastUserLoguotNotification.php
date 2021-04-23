@@ -27,7 +27,7 @@ class BroadcastUserLoguotNotification
      */
     public function handle(Logout $event)
     {
-        broadcast(new UserSessionChanged("{$event->user->name} esta en fuera de linea","dange"));
+        broadcast(new UserSessionChanged("{$event->user->name} esta en fuera de linea","danger"));
 
     }
 }

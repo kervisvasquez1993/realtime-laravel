@@ -27,6 +27,6 @@ class BroadcastUserLoginNotification
      */
     public function handle(Login $event)
     {
-        broadcast(new UserSessionChanged("{$event->user->name} esta en linea","Success"));
+        broadcast(new UserSessionChanged("{$event->user->name} esta en linea","success"));
     }
 }
