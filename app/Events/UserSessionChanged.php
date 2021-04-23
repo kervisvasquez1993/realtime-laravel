@@ -14,6 +14,7 @@ class UserSessionChanged implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    
     /**
      * Create a new event instance.
      *
@@ -21,7 +22,7 @@ class UserSessionChanged implements ShouldBroadcast
      */
     public function __construct()
     {
-        //
+        
     }
 
     /**
@@ -31,6 +32,6 @@ class UserSessionChanged implements ShouldBroadcast
      */
     public function broadcastOn() //metodo plucico 
     {
-        return new Channel('notifications');
+        return new Channel('notifications ');
     }
 }
