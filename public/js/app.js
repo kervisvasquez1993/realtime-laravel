@@ -1846,8 +1846,19 @@ module.exports = {
  * building robust, powerful web applications using Vue and Laravel.
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+/* canal publico */
 
-Echo.channel('notifications').listen('UserSessionChanged', function (e) {
+/* Echo.channel('notifications').listen('UserSessionChanged', (e) => {
+    const notificationElement = document.getElementById('notifications');
+    notificationElement.innerText = e.message;
+    notificationElement.classList.remove('invisible')
+    notificationElement.classList.remove('alert-success')
+    notificationElement.classList.remove('alert-dange');
+    notificationElement.classList.add(`alert-${e.type}`)
+}) */
+
+
+Echo["private"]('notifications').listen('UserSessionChanged', function (e) {
   var notificationElement = document.getElementById('notifications');
   notificationElement.innerText = e.message;
   notificationElement.classList.remove('invisible');
