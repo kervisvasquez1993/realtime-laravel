@@ -1847,6 +1847,14 @@ module.exports = {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+Echo.channel('notifications').listen('UserSessionChanged', function (e) {
+  var notificationElement = document.getElementById('notifications');
+  notificationElement.innerText = e.message;
+  notificationElement.classList.remove('invisible');
+  notificationElement.classList.remove('alert-success');
+  notificationElement.classList.remove('alert-dange');
+  notificationElement.classList.add("alert-".concat(e.type));
+});
 Window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.runtime.esm.js");
 /**
