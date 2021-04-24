@@ -58,7 +58,7 @@ class ApiUserController extends Controller
         $data['password'] = bcrypt($request->password);
         $user->fill($data);
         $user->save();
-        return User::create($data);
+        return $user;
     }
 
     /**

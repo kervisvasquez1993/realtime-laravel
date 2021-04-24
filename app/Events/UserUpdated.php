@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use App\User;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -33,6 +34,7 @@ class UserUpdated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
+        Log::debug("User updated {$this->user->name}");
         return new Channel('users');
     }
 }
