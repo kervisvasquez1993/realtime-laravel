@@ -15,13 +15,13 @@ class WinnerNumberGenerated
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $number;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-
-     public $number;
     public function __construct($number)
     {
         $this->number = $number;
@@ -34,7 +34,7 @@ class WinnerNumberGenerated
      */
     public function broadcastOn()
     {
-       Log::debug($this->number);
-       return new Channel('game');
+        Log::debug($this->number);
+        return new Channel('game');
     }
 }

@@ -21,7 +21,7 @@ class GameExecutor extends Command
      *
      * @var string
      */
-    protected $description = 'Start excuting the game';
+    protected $description = 'Starts executing the game';
 
     private $time = 15;
 
@@ -38,15 +38,13 @@ class GameExecutor extends Command
     /**
      * Execute the console command.
      *
-     * @return int
+     * @return mixed
      */
     public function handle()
     {
-        Log::debug("holaaaa");
         while (true) {
-            
-            $test =  broadcast(new ReainigTimeChanged($this->time));
-            
+            broadcast(new ReainigTimeChanged($this->time . 's'));
+
             $this->time--;
             sleep(1);
 

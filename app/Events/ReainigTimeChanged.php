@@ -14,8 +14,14 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class ReainigTimeChanged
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
     public $time;
 
+    /**
+     * Create a new event instance.
+     *
+     * @return void
+     */
     public function __construct($time)
     {
         $this->time = $time;
@@ -28,7 +34,6 @@ class ReainigTimeChanged
      */
     public function broadcastOn()
     {
-        
         Log::debug($this->time);
         return new Channel('game');
     }
