@@ -34,9 +34,7 @@ class WinnerNumberGenerated
      */
     public function broadcastOn()
     {
-       
-Log::debug($this->number);
-Log::debug($this->time);
-return new Channel('game');
+       Log::debug($this->number);
+       return new Channel('game');
     }
 }

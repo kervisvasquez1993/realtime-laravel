@@ -24,7 +24,7 @@
 
                 <div class="card-body">
                       <div>
-                           <img class="text-center refresh" src="{{asset('/img/circle.png')}}" id="circle" width="250" height="250" alt="">
+                           <img class="text-center" src="{{asset('/img/circle.png')}}" id="circle" width="250" height="250" alt="">
                            <p id="winner" class="display-1 d-none text-primary">10</p>
                       </div>
                       <hr>
@@ -48,3 +48,30 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+    <script>
+        const circleElement = document.getElementById('circle')
+        const timerElement = document.getElementById('timer')
+        const winnerElement = document.getElementById('winner')
+        const betElement = document.getElementById('bet')
+        const resultElement = document.getElementById('result')
+
+        Echo.channel('game')
+        .listen('ReainigTimeChanged', (e) => {
+
+            console.log('ejecutando desde el')
+            timerElement.innerText = e.time;
+            circleElement.classList.add('refresh');
+            winnerElement.classList.add('d-none');
+
+            resultElement.innerText = ''
+            winnerElement.classList.remove('d-none');
+            winnerElement.classList.remove('text-danger');
+
+        })
+        .listen('WinnerNumberGenerated', (e) => {
+
+        })
+    </script>
+@endpush
