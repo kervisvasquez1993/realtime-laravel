@@ -23,7 +23,7 @@ class GameExecutor extends Command
      */
     protected $description = 'Starts executing the game';
 
-    private $time = 15;
+    private $time = 5;
 
     /**
      * Create a new command instance.
