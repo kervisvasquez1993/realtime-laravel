@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Events;
-
-use Illuminate\Support\Facades\Log;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -34,7 +32,7 @@ class WinnerNumberGenerated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        Log::debug($this->number);
+        
         return new Channel('game');
     }
 }

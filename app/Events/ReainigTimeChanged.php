@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use Illuminate\Support\Facades\Log;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -34,7 +33,7 @@ class ReainigTimeChanged implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        Log::debug($this->time);
+
         return new Channel('game');
     }
 }

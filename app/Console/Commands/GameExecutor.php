@@ -44,10 +44,8 @@ class GameExecutor extends Command
     {
         while (true) {
             broadcast(new ReainigTimeChanged($this->time . 's'));
-
             $this->time--;
             sleep(1);
-
             if ($this->time === 0) {
                 $this->time = 'Waiting to start';
                 broadcast(new ReainigTimeChanged($this->time));

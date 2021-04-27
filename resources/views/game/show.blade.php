@@ -61,20 +61,19 @@
     const winnerElement = document.getElementById('winner');
     const betElement = document.getElementById('bet');
     const resultElement = document.getElementById('result');
-
+    
     Echo.channel('game')
-        .listen('RemainingTimeChanged', (e) => {
+        .listen('ReainigTimeChanged', (e) => {
+            console.log(e.time)
             timerElement.innerText = e.time;
-
             circleElement.classList.add('refresh');
-
-            winnerElement.classList.add('d-none');
-
+            winnerElement.classList.add('d-none');  
             resultElement.innerText = '';
             resultElement.classList.remove('text-success');
             resultElement.classList.remove('text-danger');
         })
         .listen('WinnerNumberGenerated', (e) => {
+            console.log('hola')
             circleElement.classList.remove('refresh');
 
             let winner = e.number;
